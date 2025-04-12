@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    background-color: rgb(229, 155, 239);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.symptoms-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.symptom-item {
+    margin: 5px 0;
+}
+
+.predict-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    transition: background-color 0.3s;
+}
+
+.predict-btn:hover {
+    background-color: #2980b9;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.primary-prediction {
+    background-color: #e8f4fc;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 20px;
+}
+
+.primary-prediction h3 {
+    color: #3498db;
+    margin-top: 0;
+}
+
+.primary-prediction p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.other-predictions ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.other-predictions li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.error {
+    color: #e74c3c;
+    padding: 10px;
+    background-color: #fdecea;
+    border-radius: 4px;
+    margin-top: 20px;
+}

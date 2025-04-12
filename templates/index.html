@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Predictor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Prediction from Symptoms</h1>
+        
+        <form action="/predict" method="POST">
+            <div class="symptoms-list">
+                <div><h3>Select your symptoms:</h3></div>
+                
+                
+                {% for symptom in symptoms %}
+                <div class="symptom-item">
+                    <input type="checkbox" id="{{ symptom }}" name="symptoms" value="{{ symptom }}"
+                           {% if symptom in selected_symptoms %}checked{% endif %}>
+                    <label for="{{ symptom }}">{{ symptom.replace('_', ' ').title() }}</label>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <button type="submit" class="predict-btn">Predict Disease</button>
+        </form>
+        
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <div class="primary-prediction">
+                <h3>Most Likely Disease:</h3>
+                <p>{{ prediction }}</p>
+            </div>
+            
+            <div class="other-predictions">
+                <h3>Other Possible Diseases:</h3>
+                <ul>
+                    {% for disease, prob in top_predictions %}
+                    <li>{{ disease }} ({{ "%.2f"|format(prob*100) }}%)</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div class="error">
+            <p>Error: {{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
